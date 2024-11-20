@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Favorite Sites</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      width: 350px;
+      padding: 10px;
+      background-color: #f9f9f9;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 20px; /* Curvy corners */
+      border: 3px solid #800080; /* Purple border */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      overflow: hidden; /* Prevents horizontal scroll */
+      box-sizing: border-box; /* Ensures consistent sizing */
+    }
+    h3 {
+      text-align: center;
+      color: #800080; /* Purple */
+    }
+    #siteName, #siteUrl {
+      width: calc(100% - 6px); /* Match body border size */
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 2px solid #800080; /* Purple */
+      box-sizing: border-box; /* Ensures padding doesn't overflow */
+    }
+    #addSiteBtn {
+      width: 100%;
+      padding: 10px;
+      background-color: #800080; /* Purple */
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    #addSiteBtn:hover {
+      background-color: #9932CC; /* Lighter Purple */
+    }
+    #siteList {
+      margin-top: 20px;
+      padding: 0;
+      list-style-type: none;
+      flex-grow: 1;
+      overflow-y: auto;
+      box-sizing: border-box;
+    }
+    .siteItem {
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+      padding: 10px;
+      background-color: #fff;
+      border-radius: 10px;
+      border: 2px solid #800080; /* Purple border */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+      position: relative;
+      box-sizing: border-box;
+    }
+    .siteItem:hover {
+      transform: scale(1.02); /* Subtle scaling effect */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow without growing border */
+    }
+    .siteLogo {
+      width: 24px;
+      height: 24px;
+      margin-right: 10px;
+      border-radius: 50%;
+    }
+    a {
+      text-decoration: none;
+      color: #800080; /* Purple */
+      font-size: 16px;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .buttonContainer {
+      display: flex;
+      gap: 5px;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+    }
+    .deleteBtn, .editBtn {
+      background-color: #800080; /* Purple */
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      font-size: 14px;
+      display: none;
+      cursor: pointer;
+    }
+    .deleteBtn {
+      background-color: red;
+    }
+    .deleteBtn:hover {
+      background-color: #d32f2f;
+    }
+    .editBtn:hover {
+      background-color: #9932CC; /* Lighter Purple */
+    }
+    .siteItem:hover .deleteBtn, .siteItem:hover .editBtn {
+      display: block;
+    }
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: #777;
+      margin-top: 10px;
+    }
+    footer a {
+      color: #800080; /* Purple */
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h3>Your Favorite Sites</h3>
+  <input type="text" id="siteName" placeholder="Enter site name" />
+  <input type="url" id="siteUrl" placeholder="Enter site URL" />
+  <button id="addSiteBtn">Add Site</button>
+
+  <ul id="siteList"></ul>
+
+  <footer>
+    <p>&copy; 2024 <a href="https://yourwebsite.com" target="_blank">Why</a>. All Rights Reserved.</p>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>
